@@ -1,0 +1,28 @@
+.root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter:
+    drop-shadow(0 18px 28px rgba(255, 255, 255, 0.12))
+    drop-shadow(0 0 32px color-mix(in srgb, var(--pass-accent), transparent 72%));
+}
+
+.root canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.root[data-fallback="true"]::after {
+  content: attr(data-pass-code) " " attr(data-pass-title);
+  position: absolute;
+  inset: 34% 8%;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--secondary);
+  border-radius: 999px;
+  color: var(--secondary);
+  font-family: var(--site-font-heading);
+  font-size: clamp(24px, 4vw, 46px);
+  transform: perspective(500px) rotateX(64deg);
+}

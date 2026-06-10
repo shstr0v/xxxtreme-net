@@ -1,0 +1,153 @@
+.footer {
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: minmax(180px, 285px) minmax(560px, 1fr) auto;
+  align-items: center;
+  gap: 44px;
+  padding: 22px 48px 24px;
+  background: var(--page-black);
+  color: var(--paper);
+  border-top: 1px solid var(--electric-blue);
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mark img {
+  width: clamp(136px, 14vw, 184px);
+  height: auto;
+  display: block;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 52px;
+  align-self: stretch;
+  padding-top: 1px;
+}
+
+.column h2 {
+  margin: 0 0 19px;
+  color: var(--paper);
+  font-family: var(--site-font-heading);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.column ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.column a,
+.column p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: var(--site-font-heading);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.column a:hover {
+  color: var(--paper);
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  min-width: 266px;
+}
+
+.socialLink {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+}
+
+.socialLink img {
+  width: 38px;
+  height: 38px;
+  display: block;
+  transition: transform 160ms ease;
+}
+
+.socialLink:hover img {
+  transform: scale(1.08);
+}
+
+@media (max-width: 860px) {
+  .footer {
+    grid-template-columns: minmax(136px, 180px) 1fr;
+    gap: 30px 36px;
+    padding: 26px 28px 30px;
+  }
+
+  .columns {
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: 24px;
+  }
+
+  .socials {
+    grid-column: 2;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 25px;
+    padding: 32px 22px 34px;
+  }
+
+  .mark {
+    justify-content: center;
+  }
+
+  .mark img {
+    width: 150px;
+  }
+
+  .columns {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .column h2 {
+    margin-bottom: 13px;
+  }
+
+  .column ul {
+    gap: 7px;
+  }
+
+  .column a,
+  .column p {
+    font-size: 12px;
+  }
+
+  .socials {
+    grid-column: auto;
+    justify-content: center;
+    gap: 20px;
+  }
+}

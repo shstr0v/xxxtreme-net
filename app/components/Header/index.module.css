@@ -1,0 +1,139 @@
+.shell {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--page-black);
+}
+
+.nav {
+  width: min(100%, 1240px);
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 220px minmax(300px, 1fr);
+  align-items: center;
+  padding: 0 24px;
+}
+
+.links,
+.actions,
+.location {
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  gap: 28px;
+  min-width: 0;
+}
+
+.links a,
+.location,
+.signup {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-transform: none;
+}
+
+.links a {
+  color: var(--secondary);
+  transition:
+    color 160ms ease,
+    text-shadow 160ms ease;
+}
+
+.links a:hover,
+.links a.is-active {
+  color: var(--primary);
+  text-shadow:
+    0 0 12px rgba(86, 255, 2, 0.9),
+    0 0 28px rgba(86, 255, 2, 0.55);
+}
+
+.logo {
+  width: 220px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+}
+
+.actions {
+  justify-content: flex-end;
+  gap: 28px;
+  min-width: 0;
+}
+
+.location {
+  gap: 10px;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.location img {
+  width: 34px;
+  height: 20px;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.signup {
+  width: 110px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 0;
+  background: var(--secondary);
+  color: var(--page-black);
+  box-shadow: 0 0 34px rgba(255, 255, 255, 0.68);
+  font-family: var(--site-font-button);
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    opacity 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.signup:hover {
+  opacity: 0.72;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    height: auto;
+    min-height: 118px;
+  }
+
+  .nav {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    justify-items: center;
+    padding: 16px 18px 18px;
+  }
+
+  .links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+  }
+
+  .logo {
+    width: 190px;
+    height: 70px;
+    order: -1;
+  }
+
+  .actions {
+    justify-content: center;
+    gap: 18px;
+  }
+}

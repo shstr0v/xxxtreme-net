@@ -1,0 +1,207 @@
+.section {
+  --lineup-accent: var(--primary);
+  position: relative;
+  min-height: auto;
+  padding-bottom: 22svh;
+  background: var(--electric-blue);
+  color: var(--secondary);
+  overflow: clip;
+}
+
+.hype {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  width: max-content;
+  display: grid;
+  gap: 8px;
+  padding-top: 3px;
+  color: var(--secondary);
+  font-family: var(--site-font-heading);
+  font-size: clamp(13px, 1.32vw, 19px);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.hype span {
+  display: block;
+  white-space: nowrap;
+}
+
+.activeTitle {
+  position: sticky;
+  top: 13px;
+  z-index: 7;
+  width: fit-content;
+  margin: 0 0 0 auto;
+  padding-right: clamp(8px, 2vw, 28px);
+  color: var(--secondary);
+  font-family: var(--site-font-heading);
+  font-size: clamp(22px, 2.05vw, 32px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.categoryNav {
+  position: sticky;
+  top: 118px;
+  z-index: 8;
+  width: max-content;
+  display: grid;
+  justify-items: end;
+  gap: 0;
+  margin: 48px clamp(12px, 1.1vw, 20px) -226px auto;
+}
+
+.categoryButton {
+  --category-color: var(--primary);
+  min-height: 39px;
+  max-width: min(31vw, 270px);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 0;
+  padding: 4px 12px 7px;
+  background: var(--page-black);
+  color: var(--secondary);
+  font-family: var(--site-font-heading);
+  font-size: clamp(18px, 2vw, 29px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.categoryButton[data-active="true"],
+.categoryButton:hover {
+  background: var(--category-color);
+  color: var(--page-black);
+}
+
+.panels {
+  margin-top: -82px;
+}
+
+.panel {
+  min-height: auto;
+  display: grid;
+  place-items: center;
+  padding: clamp(48px, 6.4svh, 76px) clamp(130px, 13vw, 212px)
+    clamp(48px, 6.4svh, 76px) clamp(96px, 11vw, 172px);
+  scroll-margin-top: 0;
+}
+
+.grid {
+  width: min(100%, 880px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 212px));
+  justify-content: center;
+  align-items: start;
+  gap: clamp(22px, 3.8vw, 52px);
+}
+
+.card {
+  width: min(100%, 212px);
+  display: grid;
+  grid-template-rows: 232px 80px;
+  gap: 0;
+  background: var(--page-black);
+  color: var(--secondary);
+}
+
+.visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--page-black);
+  background-position: center;
+  background-size: cover;
+}
+
+.grid[data-category="aliens"] .visual {
+  background-image: url("/us.png");
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(88%, 188px);
+  height: min(94%, 218px);
+  display: block;
+  object-fit: contain;
+  filter: contrast(1.08) saturate(1.08)
+    drop-shadow(0 12px 14px rgba(0, 0, 0, 0.42));
+  transform: translate(-50%, -50%);
+}
+
+.info {
+  display: grid;
+  align-content: center;
+  gap: 11px;
+  min-height: 80px;
+  background: var(--page-black);
+  text-align: center;
+}
+
+.info h3,
+.info p {
+  margin: 0;
+  font-family: var(--site-font-body);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.info h3 {
+  font-size: 12px;
+}
+
+.info p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 10px;
+}
+
+.see {
+  height: 39px;
+  display: grid;
+  place-items: center;
+  margin-top: 13px;
+  grid-row: 3;
+  border: 0;
+  border-radius: 0;
+  background: var(--primary);
+  color: var(--page-black);
+  font-family: var(--site-font-button);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.see:hover {
+  background: var(--panel-accent);
+  transform: translateY(-1px);
+}
