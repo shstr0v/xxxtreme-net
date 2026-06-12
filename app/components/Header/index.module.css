@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.menuButton,
+.backdrop {
+  display: none;
+}
+
 .links {
   gap: 28px;
   min-width: 0;
@@ -109,31 +114,183 @@
 
 @media (max-width: 900px) {
   .shell {
+    min-height: 76px;
     height: auto;
-    min-height: 118px;
   }
 
   .nav {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: 44px minmax(132px, 1fr) auto;
+    gap: 12px;
     justify-items: center;
-    padding: 16px 18px 18px;
+    padding: 8px 16px;
+  }
+
+  .menuButton {
+    position: relative;
+    z-index: 120;
+    width: 44px;
+    height: 36px;
+    display: grid;
+    align-content: center;
+    gap: 6px;
+    justify-self: start;
+    border: 0;
+    padding: 0 7px;
+    background: transparent;
+    color: var(--secondary);
+  }
+
+  .menuButton span {
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: currentColor;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.42);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .menuButton[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menuButton[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menuButton[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: block;
+    border: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.52);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+
+  .backdrop[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .links {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px 22px;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    z-index: 110;
+    width: min(82vw, 360px);
+    height: calc(100svh - 76px);
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 18px 16px 28px;
+    background: var(--page-black);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 28px 0 52px rgba(0, 0, 0, 0.42);
+    transform: translateX(-100%);
+    transition: transform 180ms ease;
+  }
+
+  .links[data-open="true"] {
+    transform: translateX(0);
+  }
+
+  .links a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 17px;
   }
 
   .logo {
-    width: 190px;
-    height: 70px;
-    order: -1;
+    width: 168px;
+    height: 68px;
+    justify-self: center;
   }
 
   .actions {
-    justify-content: center;
-    gap: 18px;
+    width: auto;
+    gap: 14px;
+    justify-self: end;
+  }
+
+  .location,
+  .signup {
+    font-size: 13px;
+  }
+
+  .signup {
+    width: 96px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  .shell {
+    min-height: 70px;
+  }
+
+  .nav {
+    grid-template-columns: 40px minmax(106px, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 12px;
+  }
+
+  .links {
+    top: 70px;
+    height: calc(100svh - 70px);
+    width: min(86vw, 330px);
+  }
+
+  .menuButton {
+    width: 40px;
+    height: 34px;
+    padding: 0 6px;
+  }
+
+  .logo {
+    width: 150px;
+    height: 58px;
+  }
+
+  .actions {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .location {
+    gap: 7px;
+  }
+
+  .location img {
+    width: 28px;
+    height: 17px;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo {
+    width: 132px;
+    height: 54px;
+  }
+
+  .location span {
+    display: none;
+  }
+
+  .signup {
+    width: 88px;
   }
 }

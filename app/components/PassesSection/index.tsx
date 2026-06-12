@@ -24,6 +24,26 @@ const passes = [
   },
 ];
 
+function ArrowIcon({ direction }: { direction: "previous" | "next" }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={styles.arrowIcon}
+      focusable="false"
+    >
+      <path
+        d={direction === "previous" ? "M15 5 8 12l7 7" : "m9 5 7 7-7 7"}
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        strokeWidth="3"
+      />
+    </svg>
+  );
+}
+
 export default function PassesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const lastWheelAtRef = useRef(0);
@@ -95,7 +115,7 @@ export default function PassesSection() {
           onClick={() => goTo(-1)}
           aria-label={`Previous pass: ${nextPreview.previous}`}
         >
-          {"<"}
+          <ArrowIcon direction="previous" />
         </button>
 
         <div className={styles.focus} key={activePass.id}>
@@ -113,7 +133,7 @@ export default function PassesSection() {
           onClick={() => goTo(1)}
           aria-label={`Next pass: ${nextPreview.next}`}
         >
-          {">"}
+          <ArrowIcon direction="next" />
         </button>
       </div>
 

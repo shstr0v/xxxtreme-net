@@ -205,3 +205,174 @@
   background: var(--panel-accent);
   transform: translateY(-1px);
 }
+
+@media (max-width: 1100px) {
+  .section {
+    padding-bottom: 16svh;
+  }
+
+  .hype {
+    font-size: 13px;
+  }
+
+  .activeTitle {
+    top: 10px;
+    font-size: clamp(20px, 3vw, 28px);
+  }
+
+  .categoryNav {
+    top: 96px;
+    margin: 34px 14px -174px auto;
+  }
+
+  .categoryButton {
+    min-height: 34px;
+    max-width: 236px;
+    padding: 4px 10px 6px;
+    font-size: clamp(17px, 2.7vw, 24px);
+  }
+
+  .panels {
+    margin-top: -54px;
+  }
+
+  .panel {
+    padding: clamp(42px, 6svh, 64px) clamp(132px, 17vw, 178px)
+      clamp(42px, 6svh, 64px) clamp(34px, 7vw, 88px);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(126px, 176px));
+    gap: clamp(16px, 2.8vw, 34px);
+  }
+
+  .card {
+    grid-template-rows: clamp(174px, 22vw, 206px) 74px;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 0 0 12svh;
+    overflow: hidden;
+  }
+
+  .hype {
+    position: relative;
+    top: auto;
+    width: 100%;
+    gap: 5px;
+    padding: 6px 12px 0;
+    font-size: 12px;
+    opacity: 0.92;
+  }
+
+  .activeTitle {
+    position: sticky;
+    top: 70px;
+    margin-top: 8px;
+    padding-right: 12px;
+    font-size: 22px;
+  }
+
+  .categoryNav {
+    top: 102px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 6px;
+    margin: 10px 0 18px;
+    padding: 0 12px 8px;
+    overflow-x: auto;
+    background: var(--electric-blue);
+    scrollbar-width: none;
+  }
+
+  .categoryNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .categoryButton {
+    min-width: max-content;
+    min-height: 34px;
+    max-width: none;
+    padding: 5px 10px 7px;
+    font-size: 17px;
+  }
+
+  .panels {
+    margin-top: 0;
+  }
+
+  .panel {
+    padding: 34px 12px 44px;
+    scroll-margin-top: 120px;
+  }
+
+  .grid {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 230px;
+    grid-template-rows: clamp(168px, 58vw, 220px) 72px auto;
+    justify-self: center;
+  }
+
+  .photo {
+    width: min(86%, 178px);
+    height: min(92%, 208px);
+  }
+
+  .info {
+    min-height: 72px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .info p {
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 460px) {
+  .activeTitle {
+    top: 70px;
+    font-size: 20px;
+  }
+
+  .categoryNav {
+    top: 98px;
+  }
+
+  .panel {
+    padding: 28px 10px 38px;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    grid-template-rows: clamp(146px, 50vw, 184px) 68px auto;
+  }
+
+  .photo {
+    width: min(88%, 158px);
+    height: min(92%, 176px);
+  }
+
+  .see {
+    height: 36px;
+    margin-top: 9px;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid {
+    grid-template-columns: minmax(0, 230px);
+  }
+}
